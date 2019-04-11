@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>KIDOLE SPORT</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-all.min.css">
+        <link href="resources/css/app.css" rel="stylesheet" type="text/css"/>
+        <style>
+            .ombre{
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            }
+        </style>
+    </head>
+    <body style="background-image: url('resources/img/wall.jpg')">
+        <div class="grid">
+            <div class="row">
+                <div class="cell-4">
+
+                </div>
+                <div class="cell-4">
+                    <div id="div_connexion" class="ombre" style="margin-top: 0px; padding: 30px; border : 1px solid #aaa; background-color: white">
+                        <div style="padding: 5px 0px 10px 0px;">
+                            <img style="width: 50%" src="resources/img/logo.jfif" alt=""/>
+                        </div>
+                        <div style="padding-bottom: 10px;">
+                            <div class="form-group">
+                                <label>Adresse mail</label>
+                                <input id="login" type="email" placeholder="Enter email"/>
+                            </div>
+                            <div class="form-group">
+                                <label>Mot de passe</label>
+                                <input id="passe" type="password" placeholder="Enter email"/>
+                            </div>
+
+                            <div class="form-group">
+                                <button onclick="connexion()" class="button success">Connexion</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cell-4">
+
+                </div>
+            </div>
+        </div>
+        <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
+
+        <script src="resources/js/angular.min.js" type="text/javascript"></script>
+        <script src="resources/js/angular-route.js" type="text/javascript"></script>
+
+        <script>
+                                    // Initialize Firebase
+                                    var config = {
+                                        apiKey: "AIzaSyBJMNHxEuJiOtOkm2e161H55_TrLd4-U-4",
+                                        authDomain: "adentic-muanza.firebaseapp.com",
+                                        databaseURL: "https://adentic-muanza.firebaseio.com",
+                                        projectId: "adentic-muanza",
+                                        storageBucket: "adentic-muanza.appspot.com",
+                                        messagingSenderId: "550545313924"
+                                    };
+                                    firebase.initializeApp(config);
+
+                                    function connexion() {
+                                        var login = $("#login").val();
+                                        var passe = $("#passe").val();
+                                        console.log(login);
+                                        console.log(passe);
+                                        $("#div_connexion").animate({'opacity': '0.0'}, 1000);
+                                        firebase.auth()
+                                                .signInWithEmailAndPassword(login, passe)
+                                                .then(function (user) {
+                                                    console.log(user);
+                                                    var utilisateur = {
+                                                        login: login,
+                                                        passe: passe
+                                                    }
+                                                    localStorage.setItem("kidoleUser", JSON.stringify(utilisateur));
+                                                    window.location.href = 'app.html'
+
+                                                })
+                                                .catch(function (error) {
+                                                    $("#div_connexion").animate({'opacity': '1'}, 1000);
+                                                });
+
+                                    }
+
+                                    $(document).ready(function () {
+                                        console.log("L'application est prête !");
+
+                                        // Effet visuel
+                                        $("#div_connexion").animate({'marginTop': '120px'}, 1000);
+                                    })
+        </script>
+    </body>
+</html>
