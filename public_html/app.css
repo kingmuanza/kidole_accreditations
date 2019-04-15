@@ -1,0 +1,41 @@
+.fg-bleu {
+    color: #1b4e9c;
+}
+
+.bg-bleu {
+    background-color: #1b4e9c;
+}
+
+.fg-myorange {
+    
+}
+
+.bg-myorange {
+    
+}
+
+.menu_muanza:hover {
+    cursor: pointer;
+    background-color: #f09433 !important;
+}
+.menu_muanza:hover span{
+    font-weight: 400;
+    opacity: 0.9;
+}
+.menu_muanza:hover a{
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+.menu_muanza a:hover{
+    text-decoration: none !important;
+}
+.menu_muanza a{
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-right: 20px;
+}
+.menu_muanza a span{
+    padding-right: 30px;
+    
+}

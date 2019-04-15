@@ -44,7 +44,19 @@
                 </div>
             </div>
         </div>
-        <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
+        <!-- FIREBASE : Services Cloud -->
+        <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
+        <script>
+                                    const config = {
+                                        apiKey: "AIzaSyDWLj8yYKaue-cW-0k3zuKQt-0tPzkqNK8",
+                                        authDomain: "kidole-accreditations.firebaseapp.com",
+                                        databaseURL: "https://kidole-accreditations.firebaseio.com",
+                                        projectId: "kidole-accreditations",
+                                        storageBucket: "kidole-accreditations.appspot.com",
+                                        messagingSenderId: "766458675347"
+                                    };
+                                    firebase.initializeApp(config);
+        </script>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
 
@@ -52,16 +64,6 @@
         <script src="resources/js/angular-route.js" type="text/javascript"></script>
 
         <script>
-                                    // Initialize Firebase
-                                    var config = {
-                                        apiKey: "AIzaSyBJMNHxEuJiOtOkm2e161H55_TrLd4-U-4",
-                                        authDomain: "adentic-muanza.firebaseapp.com",
-                                        databaseURL: "https://adentic-muanza.firebaseio.com",
-                                        projectId: "adentic-muanza",
-                                        storageBucket: "adentic-muanza.appspot.com",
-                                        messagingSenderId: "550545313924"
-                                    };
-                                    firebase.initializeApp(config);
 
                                     function connexion() {
                                         var login = $("#login").val();
